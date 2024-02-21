@@ -165,7 +165,7 @@ const HomePage = () => {
                         <img src={smileCoupleImage} className=' col-md-4 d-md-block d-none ' alt="" />
                     </div>
 
-                    <div className='col-md-6  review-description-main-div'>
+                    <div className='col-md-6 p-4 review-description-main-div'>
                         <h1>"AS SOON AS I MET HER, SHE PUT MY WEDDING PHOTOGRAPHY WORRIES AT EASE"</h1>
 
                         <div className=' review-description-div '>
