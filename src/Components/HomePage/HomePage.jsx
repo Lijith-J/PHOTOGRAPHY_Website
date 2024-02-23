@@ -32,7 +32,7 @@ const HomePage = () => {
     return (
         <>
 
-            <Main_Add_Photos />
+            
 
             <div className='container-fluid backside-image back-image'>
                 {/* <img className='img img-fluid ' src={backImage} alt="" /> */}
@@ -40,6 +40,8 @@ const HomePage = () => {
             </div>
 
             <div className=' home-main '>
+
+            <Main_Add_Photos />
 
                 <div className='container-fluid pt-5  gap-5   d-flex flex-column  justify-content-center align-items-center readmore-content-div'>
 
