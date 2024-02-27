@@ -12,6 +12,10 @@
     font-family: QuattrocentoSans;
     src: url(../../fonts/QuattrocentoSans-Regular.ttf);
 }
+@font-face {
+    font-family: PlayfairDisplay;
+    src: url(../../fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
 
 
 
@@ -43,6 +47,29 @@
 
     width: 100%;
     position: relative;
+}
+/* ________________________________________________________ */
+
+.potos-ad-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: fill;
+
+}
+
+.ad-image {
+    margin-top: 70px;
+    width: 100%;
+    height: auto;
+}
+
+.potos-ad-div h1{
+    color: white;
+    font-size: 5.5vw;
+    letter-spacing: 0.2em;
+    font-family: PlayfairDisplay;
+    position: absolute;
 }
 
 
@@ -150,7 +177,7 @@
     letter-spacing: 0.2em;
     font-size: 25px;
     text-align: center;
-    font-family: 'Cardo';
+    font-family: Cardo;
 }
 
 

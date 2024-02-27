@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './HomePage_style.css'
 import './HomePage_media.css'
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css'
 
-import '../Main_Ad_Photos/Main_Add_Photos'
-import Main_Add_Photos from '../Main_Ad_Photos/Main_Add_Photos'
+
+
+// Ad Photos  ____________________________________________________________
+import img1 from './images/Ad Photos/red_wedding_saree_photoshoot_girl_model_women_pose_hd_girls-1920x1080.jpg'
+import img2 from './images/Ad Photos/renee_murden_white_wedding_dress_net_green_trees_plants_photoshoot_4k_hd_girls-2560x1440.jpg'
+// _______________________________________________
+
 
 // import backImage from './images/freestocks-a1Fmxesw31g-unsplash.jpg'
 import couple from './images/anna-vi-rQSauuUzx0w-unsplash.jpg'
@@ -29,19 +34,61 @@ import smileCoupleImage from './images/review images/jonathan-borba-sYVvnpTcRrA-
 
 
 const HomePage = () => {
+
+
+    const [currentImage, setCurrentImage] = useState('');
+
+    // Define an array of image URLs
+    const imageUrls = [
+        img1,
+        img2,
+    ];
+
+    // Define a state to track the index of the current image
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Function to change the image after some seconds
+    useEffect(() => {
+        // Define a timer to change the image every 5 seconds (5000 milliseconds)
+        const timer = setInterval(() => {
+            // Increment the index to get the next image
+            const nextIndex = (currentIndex + 1) % imageUrls.length;
+            setCurrentIndex(nextIndex);
+        }, 5000); // Change image every 5 seconds
+
+        // Clear the timer on component unmount to prevent memory leaks
+        return () => clearInterval(timer);
+    }, [currentIndex, imageUrls.length]);
+
+    // Update the current image URL when the index changes
+    useEffect(() => {
+        setCurrentImage(imageUrls[currentIndex]);
+    }, [currentIndex, imageUrls]);
+
+
+
     return (
         <>
 
-            
+
 
             <div className='container-fluid backside-image back-image'>
                 {/* <img className='img img-fluid ' src={backImage} alt="" /> */}
 
             </div>
 
-            <div className=' home-main '>
+            <div className='home-main '>
 
-            <Main_Add_Photos />
+
+                {/* Top Ad Photos__________________________________________________ */}
+
+                <div className=' container-fluid p-0 potos-ad-div'>
+                    <img className='img-fluid ad-image' src={currentImage} alt="" />
+                    <h1 >LEE PHOTOGRAPHY</h1>
+                </div>
+                {/* _________________________________________________________________________ */}
+
+
 
                 <div className='container-fluid pt-5  gap-5   d-flex flex-column  justify-content-center align-items-center readmore-content-div'>
 
@@ -49,7 +96,7 @@ const HomePage = () => {
 
                         <div className='col-md-4 p-3  top-description-div'>
 
-                            <h4 className=' text-white fs-3'> Creating intimate and refined images for the timeless couple.</h4>
+                            <h4 className=' text-white'> Creating intimate and refined images for the timeless couple.</h4>
                             <p>Driven by authentic connections and dedicated to crafting enduring memories, Alexi is a proficient photographer adept in both film and digital mediums. Her expertise lies in capturing intimate, elegant, and timeless imagery that resonates deeply with couples in love.</p>
 
                         </div>
