@@ -62,12 +62,12 @@ const Navbar = () => {
                         <div className='col-12 navModal-content-div'>
                             <div className='col-12 modal-navlinks-div'>
 
-                                <Link to='/' className='modal-nav-item links'><span >HOME</span></Link>
-                                <Link to='/about' className='modal-nav-item'><span >ABOUT</span></Link>
-                                <Link to='/portfolio' className='modal-nav-item'><span >PORTFOLIO</span></Link>
-                                <Link to='/services' className='modal-nav-item'><span >SERVICES</span></Link>
-                                <Link to='/contact' className='modal-nav-item'><span >CONTACT</span></Link>
-                                <Link to='/blog' className='modal-nav-item'><span >BLOG</span></Link>
+                                <Link to='/' className='modal-nav-item links' onClick={()=>setNavModal(false)}><span >HOME</span></Link>
+                                <Link to='/about' className='modal-nav-item' onClick={()=>setNavModal(false)}><span >ABOUT</span></Link>
+                                <Link to='/portfolio' className='modal-nav-item' onClick={()=>setNavModal(false)}><span >PORTFOLIO</span></Link>
+                                <Link to='/services' className='modal-nav-item' onClick={()=>setNavModal(false)}><span >SERVICES</span></Link>
+                                <Link to='/contact' className='modal-nav-item' onClick={()=>setNavModal(false)}><span >CONTACT</span></Link>
+                                <Link to='/blog' className='modal-nav-item' onClick={()=>setNavModal(false)}><span >BLOG</span></Link>
                             
 
 
