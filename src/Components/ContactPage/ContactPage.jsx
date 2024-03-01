@@ -89,7 +89,9 @@ const ContactPage = () => {
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Event date</label>
-          <input className=' w-100 ' type="text" placeholder='MM/DD/YY' />
+          {/* <input className=' w-100 ' type="text" placeholder='MM/DD/YY' /> */}
+          <input className=' w-100  date-input' type="date" placeholder='MM/DD/YY' />
+
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
@@ -99,7 +101,17 @@ const ContactPage = () => {
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">What type of session are you looking for?</label>
-          <input className=' w-100 ' type="text" placeholder='select an option' />
+          {/* <input className=' w-100 ' type="text" placeholder='select an option' /> */}
+
+          <select name="" id="">
+            <div className='selection-div'>
+              <option value="">Event</option>
+              <option value="">Family</option>
+              <option value="">Party</option>
+              <option value="">Design</option>
+            </div>
+          </select>
+
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>

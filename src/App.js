@@ -9,6 +9,8 @@ import  '../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css'
 import ContactPage from "./Components/ContactPage/ContactPage";
 import About from "./Components/AboutPage/About";
 import Services from "./Components/ServicesPage/Services";
+import Portfolio from "./Components/PortfolioPage/Portfolio";
+import Blog from "./Components/BlogPage/Blog";
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
          <Route path="/contact" element={<ContactPage/>}/> 
          <Route path="/about" element={<About/>}/> 
          <Route path="/services" element={<Services/>}/> 
+         <Route path="/portfolio" element={< Portfolio/>}/> 
+         <Route path="/blog" element={< Blog/>}/> 
         </Route>
         
       </Routes>

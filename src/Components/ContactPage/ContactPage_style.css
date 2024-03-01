@@ -84,6 +84,19 @@
     background: transparent;
     border-width: 0 0 2px 0;
 }
+.contact-form-sub-div select {
+    color: white;
+    outline: none;
+    background: none; 
+    border-width: 0 0 2px 0;
+}
+.contact-form-sub-div option {
+  
+}
+.selection-div{
+    background: yellow;
+    height: 300px;
+}
 
 .contact-form-sub-div textarea {
     color: white;
@@ -93,6 +106,7 @@
     box-sizing: border-box;
     resize: none;
 }
+
 
 .form-button-div {}
 
