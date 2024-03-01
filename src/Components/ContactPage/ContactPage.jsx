@@ -104,12 +104,12 @@ const ContactPage = () => {
           {/* <input className=' w-100 ' type="text" placeholder='select an option' /> */}
 
           <select name="" id="">
-            <div className='selection-div'>
-              <option value="">Event</option>
-              <option value="">Family</option>
-              <option value="">Party</option>
-              <option value="">Design</option>
-            </div>
+
+            <option value="">Event</option>
+            <option value="">Family</option>
+            <option value="">Party</option>
+            <option value="">Design</option>
+
           </select>
 
         </div>
@@ -121,7 +121,15 @@ const ContactPage = () => {
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">How did you hear about us?</label>
-          <input className=' w-100 ' type="text" placeholder='Select an option' />
+          {/* <input className=' w-100 hear-about-input' type="text" placeholder='Select an option' /> */}
+
+          <select name="" >
+            <option value="">Google</option>
+            <option value="">Facebook</option>
+            <option value="">Instagram</option>
+            <option value="">Twitter</option>
+          </select>
+
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>

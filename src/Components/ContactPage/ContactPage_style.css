@@ -25,8 +25,9 @@
     object-fit: fill;
     overflow: hidden;
 }
-.contact-Ad-photos-div img{
-   width: 100%;
+
+.contact-Ad-photos-div img {
+    width: 100%;
 }
 
 
@@ -84,19 +85,21 @@
     background: transparent;
     border-width: 0 0 2px 0;
 }
+
 .contact-form-sub-div select {
     color: white;
     outline: none;
-    background: none; 
+    background: none;
     border-width: 0 0 2px 0;
+    border-radius: 0px !important;
+    padding: 4px;
 }
+
 .contact-form-sub-div option {
-  
+    color: black !important;
 }
-.selection-div{
-    background: yellow;
-    height: 300px;
-}
+
+
 
 .contact-form-sub-div textarea {
     color: white;
@@ -122,17 +125,19 @@
 /* ________________________________________________________________ */
 
 
-.thanks-giving-box{
+.thanks-giving-box {
     background-color: #292929;
-  
+
 }
-.thanks-giving-box h2{
+
+.thanks-giving-box h2 {
     color: white;
     line-height: 1.4;
     letter-spacing: 0.1em;
     font-family: Cardo;
 }
-.thanks-giving-box p{
+
+.thanks-giving-box p {
     color: white;
     letter-spacing: 0.1em;
     font-family: Questrial;
