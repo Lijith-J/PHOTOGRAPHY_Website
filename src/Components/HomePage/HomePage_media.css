@@ -79,4 +79,12 @@
         flex: 1;
     }
 
+    .video-div {
+        height: 270px;
+    }
+
+    .wedding-video {
+        width: 100%;
+    }
+
 }

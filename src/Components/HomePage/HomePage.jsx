@@ -117,7 +117,7 @@ const HomePage = () => {
 
                         </div>
 
-                        <div className='col-md-5 p-3 text-white bottom-description-div'>
+                        <div className='col-md-5 p-md-3 text-white bottom-description-div'>
 
                             <h2 className=' text-white fs-3'> LIJITH J</h2>
                             <span>FOUNDER + PHOTOGRAPHER</span>
@@ -159,18 +159,24 @@ const HomePage = () => {
 
                     <div className='container row p-2 d-flex flex-md-wrap justify-content-evenly categories-main-div'>
                         <div className='col-md-4  categories-div'>
-                            <h1>Couples</h1>
-                            <p>VIEW GALLERY</p>
+                            <div className='p-4 p-md-2 category-title-div'>
+                                <h1>Couples</h1>
+                                <p>VIEW GALLERY</p>
+                            </div>
                             <img className='img img-fluid ' src={couplesImg} alt="" />
                         </div>
                         <div className='col-md-4 categories-div'>
-                            <h1>Family</h1>
-                            <p>VIEW GALLERY</p>
+                            <div className='p-4 p-md-2 category-title-div'>
+                                <h1>Family</h1>
+                                <p>VIEW GALLERY</p>
+                            </div>
                             <img className='img img-fluid ' src={kidImage} alt="" />
                         </div>
                         <div className='col-md-4 categories-div'>
-                            <h1>Travel</h1>
-                            <p>VIEW GALLERY</p>
+                            <div className='p-4 p-md-2 category-title-div'>
+                                <h1>Travel</h1>
+                                <p>VIEW GALLERY</p>
+                            </div>
                             <img className='img img-fluid ' src={TravelImage} alt="" />
                         </div>
 

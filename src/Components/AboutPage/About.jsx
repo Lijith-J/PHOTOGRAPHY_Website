@@ -94,16 +94,16 @@ const About = () => {
 
                     {/* Bottom_________________________________________________________ */}
 
-                    <div className='container row-cols-md-6 d-flex flex-wrap-reverse  about-content-bottom-div'>
+                    <div className=' col-10 p-md-3  row-cols-md-6 d-flex flex-wrap-reverse  about-content-bottom-div'>
 
-                        <div className='col-md-5 p-5 d-flex justify-content-center align-items-center  about-bottom-image-div'>
+                        <div className='col-md-5 p-5 p-md-5 d-flex justify-content-center align-items-center  about-bottom-image-div'>
                             <img className='img  img-fluid d-flex justify-content-center' src={photographer} alt="" />
 
                         </div>
 
-                        <div className='col-md-5 p-5 d-flex flex-column  justify-content-between   text-white about-bottom-description-div'>
+                        <div className='col-md-5 p-3  p-lg-5 text-center  text-md-start d-flex flex-column  justify-content-between   text-white about-bottom-description-div'>
 
-                            <h2 className=' text-white fs-3'> LIJITH J</h2>
+                            <h2 className=' text-white '> LIJITH J</h2>
                             <span>FOUNDER + PHOTOGRAPHER</span>
                             <p>My time is divided between two enchanting locations: the serene landscapes of South Louisiana and the picturesque Gulf Coast of Mississippi. I'm often accompanied by my son, Grayson, and myl golden retriever , Rose'.</p>
                             <p>During my leisure time, I relish the quieter moments in life. I find joy in watching sunsets, savoring quality family time, and exploring the world through travel. My ideal Sunday would involve a leisurely brunch followed by a visit to a charming farmer's market</p>

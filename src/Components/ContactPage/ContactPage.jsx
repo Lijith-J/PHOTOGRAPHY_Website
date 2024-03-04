@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 import './ContactPage_style.css'
 import './ContactPage_media.css'
@@ -13,9 +14,13 @@ import photoTwo from './images/nathan-dumlao-5BB_atDT4oA-unsplash.jpg'
 import cheersImg from './images/cheers1.jpg'
 
 
+
+
 const ContactPage = () => {
 
   const [currentImage, setCurrentImage] = useState('');
+
+  const [inputValues, setInputValues] = useState({})
 
 
   // Define an array of image URLs
@@ -47,6 +52,20 @@ const ContactPage = () => {
 
 
 
+  const getValueFromContactForm = (e) => {
+    const { name, value } = e.target
+    setInputValues((prev) => ({ ...prev, [name]: value }));
+
+  }
+
+  console.log(inputValues)
+
+
+  const handleApi = async () => {
+    const url = await axios.post("http://localhost:9000/verify-email", inputValues)
+    const response = url.data
+    // console.log("ppppppp", response)
+  }
 
   return (
 
@@ -74,41 +93,42 @@ const ContactPage = () => {
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Full name *</label>
-          <input className=' w-100 ' type="text" placeholder='Your Name Here' />
+          <input className=' w-100 ' name='fullname' value={inputValues.fullname} onChange={getValueFromContactForm} type="text" placeholder='Your Name Here' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Email *</label>
-          <input className=' w-100 ' type="text" placeholder='Email Here' />
+          <input className=' w-100 ' name="email" value={inputValues.email} onChange={getValueFromContactForm} type="text" placeholder='Email Here' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Phone number</label>
-          <input className=' w-100 ' type="text" placeholder='Your Phone number' />
+          <input className=' w-100 ' name='phonenumber' value={inputValues.phonenumber} onChange={getValueFromContactForm} type="text" placeholder='Your Phone number' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Event date</label>
           {/* <input className=' w-100 ' type="text" placeholder='MM/DD/YY' /> */}
-          <input className=' w-100  date-input' type="date" placeholder='MM/DD/YY' />
+          <input className=' w-100  date-input' name='eventDate' value={inputValues.eventDate} onChange={getValueFromContactForm} type="date" placeholder='MM/DD/YY' />
 
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Event Location</label>
-          <input className=' w-100 ' type="text" placeholder='Event Location Address' />
+          <input className=' w-100 ' name='eventLocation' value={inputValues.eventLocation} onChange={getValueFromContactForm} type="text" placeholder='Event Location Address' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">What type of session are you looking for?</label>
           {/* <input className=' w-100 ' type="text" placeholder='select an option' /> */}
 
-          <select name="" id="">
+          <select name="eventType" value={inputValues.eventType} onChange={getValueFromContactForm}>
 
-            <option value="">Event</option>
-            <option value="">Family</option>
-            <option value="">Party</option>
-            <option value="">Design</option>
+            <option value="">Select an option</option>
+            <option value="Event">Event</option>
+            <option value="Family">Family</option>
+            <option value="Party">Party</option>
+            <option value="Design">Design</option>
 
           </select>
 
@@ -116,29 +136,30 @@ const ContactPage = () => {
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Budget</label>
-          <input className=' w-100 ' type="text" placeholder='$1000' />
+          <input className=' w-100 ' name='budget' value={inputValues.budget} onChange={getValueFromContactForm} type="text" placeholder='$1000' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">How did you hear about us?</label>
           {/* <input className=' w-100 hear-about-input' type="text" placeholder='Select an option' /> */}
 
-          <select name="" >
-            <option value="">Google</option>
-            <option value="">Facebook</option>
-            <option value="">Instagram</option>
-            <option value="">Twitter</option>
+          <select name="hearAboutUs" value={inputValues.hearAboutUs} onChange={getValueFromContactForm} >
+            <option value="">Select an option</option>
+            <option value="Google">Google</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Twitter">Twitter</option>
           </select>
 
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Tell me more about your session or event</label>
-          <textarea name="" id="" cols="10" rows="3" placeholder='   What are you envisioning?'></textarea>
+          <textarea cols="10" rows="3" name='TellAboutEvent' value={inputValues.TellAboutEvent} onChange={getValueFromContactForm} placeholder='   What are you envisioning?'></textarea>
         </div>
 
         <div className='col-md-4 p-5  d-flex justify-content-center form-button-div'>
-          <button className=''>SEND</button>
+          <button className='' onClick={() => handleApi()}>SEND</button>
         </div>
 
       </div>
