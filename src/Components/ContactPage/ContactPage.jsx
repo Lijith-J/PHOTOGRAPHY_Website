@@ -22,6 +22,51 @@ const ContactPage = () => {
 
   const [inputValues, setInputValues] = useState({})
 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    eventDate:'',
+    eventLocation:'',
+    eventType:'',
+    budget:'',
+    hearAboutUs:'',
+    TellAboutEvent:''
+  });
+
+  console.log(formData)
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzych_lIT5wD7r5V5Mm49h3nJakR9iLW7qb4Bxvyy2s_11NYNVGo4Ka9pL2g1uYh3ut/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(formData)
+      });
+
+      if (response.ok) {
+        alert('Form submitted successfully');
+        window.location.reload();
+      } else {
+        throw new Error('Something went wrong');
+      }
+    } catch (error) {
+      alert('Something went wrong');
+      console.error(error);
+    }
+  };
+
 
   // Define an array of image URLs
   const imageUrls = [
@@ -48,24 +93,9 @@ const ContactPage = () => {
   // Update the current image URL when the index changes
   useEffect(() => {
     setCurrentImage(imageUrls[currentIndex]);
+    console.log(inputValues)
   }, [currentIndex, imageUrls]);
 
-
-
-  const getValueFromContactForm = (e) => {
-    const { name, value } = e.target
-    setInputValues((prev) => ({ ...prev, [name]: value }));
-
-  }
-
-  console.log(inputValues)
-
-
-  const handleApi = async () => {
-    const url = await axios.post("http://localhost:9000/verify-email", inputValues)
-    const response = url.data
-    // console.log("ppppppp", response)
-  }
 
   return (
 
@@ -89,40 +119,40 @@ const ContactPage = () => {
 
       {/* Contact Form  _____________________________________________________________________*/}
 
-      <div className='container-fluid p-5 d-flex flex-column align-items-center  contact-form-div'>
+      <form onSubmit={handleSubmit} className='container-fluid p-5 d-flex flex-column align-items-center  contact-form-div'>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Full name *</label>
-          <input className=' w-100 ' name='fullname' value={inputValues.fullname} onChange={getValueFromContactForm} type="text" placeholder='Your Name Here' />
+          <input className=' w-100 ' name='name' value={formData.name} onChange={handleChange} type="text" placeholder='Your Name Here' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Email *</label>
-          <input className=' w-100 ' name="email" value={inputValues.email} onChange={getValueFromContactForm} type="text" placeholder='Email Here' />
+          <input className=' w-100 ' name="email" value={inputValues.email} onChange={handleChange} type="text" placeholder='Email Here' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Phone number</label>
-          <input className=' w-100 ' name='phonenumber' value={inputValues.phonenumber} onChange={getValueFromContactForm} type="text" placeholder='Your Phone number' />
+          <input className=' w-100 ' name='phone' value={formData.phone} onChange={handleChange} type="text" placeholder='Your Phone number' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Event date</label>
           {/* <input className=' w-100 ' type="text" placeholder='MM/DD/YY' /> */}
-          <input className=' w-100  date-input' name='eventDate' value={inputValues.eventDate} onChange={getValueFromContactForm} type="date" placeholder='MM/DD/YY' />
+          <input className=' w-100  date-input' name='eventDate' value={formData.eventDate} onChange={handleChange} type="date" placeholder='MM/DD/YY' />
 
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Event Location</label>
-          <input className=' w-100 ' name='eventLocation' value={inputValues.eventLocation} onChange={getValueFromContactForm} type="text" placeholder='Event Location Address' />
+          <input className=' w-100 ' name='eventLocation' value={formData.eventLocation} onChange={handleChange} type="text" placeholder='Event Location Address' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">What type of session are you looking for?</label>
           {/* <input className=' w-100 ' type="text" placeholder='select an option' /> */}
 
-          <select name="eventType" value={inputValues.eventType} onChange={getValueFromContactForm}>
+          <select name="eventType" value={formData.eventType} onChange={handleChange}>
 
             <option value="">Select an option</option>
             <option value="Event">Event</option>
@@ -136,14 +166,14 @@ const ContactPage = () => {
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Budget</label>
-          <input className=' w-100 ' name='budget' value={inputValues.budget} onChange={getValueFromContactForm} type="text" placeholder='$1000' />
+          <input className=' w-100 ' name='budget' value={formData.budget} onChange={handleChange} type="text" placeholder='$1000' />
         </div>
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">How did you hear about us?</label>
           {/* <input className=' w-100 hear-about-input' type="text" placeholder='Select an option' /> */}
 
-          <select name="hearAboutUs" value={inputValues.hearAboutUs} onChange={getValueFromContactForm} >
+          <select name="hearAboutUs" value={formData.hearAboutUs} onChange={handleChange} >
             <option value="">Select an option</option>
             <option value="Google">Google</option>
             <option value="Facebook">Facebook</option>
@@ -155,14 +185,14 @@ const ContactPage = () => {
 
         <div className='col-12 col-md-8 p-3  d-flex flex-column  justify-content-evenly   contact-form-sub-div'>
           <label htmlFor="">Tell me more about your session or event</label>
-          <textarea cols="10" rows="3" name='TellAboutEvent' value={inputValues.TellAboutEvent} onChange={getValueFromContactForm} placeholder='   What are you envisioning?'></textarea>
+          <textarea cols="10" rows="3" name='TellAboutEvent' value={formData.TellAboutEvent} onChange={handleChange} placeholder='   What are you envisioning?'></textarea>
         </div>
 
         <div className='col-md-4 p-5  d-flex justify-content-center form-button-div'>
-          <button className='' onClick={() => handleApi()}>SEND</button>
+          <button type='submit'>SEND</button>
         </div>
 
-      </div>
+      </form>
 
 
 

@@ -57,11 +57,11 @@ const Footer = () => {
         <div className='col-10 d-flex p-3  address-mail-contact-main-div'>
 
           <div className='col-md-4 p-3 d-none d-md-flex  justify-content-center align-items-end bg-body  mail-div'>
-            <span>leephorography@gmail.com</span>
+            <span>ljphorography@gmail.com</span>
           </div>
 
           <div className='col-md-4 p-3 text-center d-flex flex-column align-items-center  address-div'>
-            <h3>LIJITH LEE</h3>
+            <h3>PHOTOGRAPHY</h3>
 
             <p>Based in South Louisiana, but travels to MS, FL, UT, Europe, and more.</p>
 
@@ -92,7 +92,7 @@ const Footer = () => {
       </footer>
 
       <div className='col-12 p-3 d-flex justify-content-center  align-items-center footer-bottom-div'>
-        Lijith Lee Photography 2014 - 2021
+        Lijith Photography 2014 - 2021
       </div>
 
     </>

@@ -26,9 +26,9 @@ const transporter = nodemailer.createTransport({
 
 function sendVerificationEmail(userEmail, userFullname, userPhonenumber, EventDate, EventLocation, EventType, Budget, HowHearAboutUs, TellAboutYourEvent) {
     const mailOptions = {
-        from: 'YOUR EMAIL ADDRESS',
-        to: "lijithj129@gmail.com",
-        subject: 'Email Verification',
+        from: userEmail,
+        to: "lijithj786@gmail.com",
+        subject: '',
         text: `
         Name : ${userFullname} 
         Email : ${userEmail} 

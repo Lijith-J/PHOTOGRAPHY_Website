@@ -24,7 +24,7 @@ const Navbar = () => {
             <div className='col-12 navigation-bar '>
 
                 <div className='col-4  logo-div'>
-                    <h3 className='navbar-brand' >LIJITH LEE</h3>
+                    <h3 className='navbar-brand' >PHOTOGRAPHY</h3>
 
                     <img className='img-fluid nav-options-icon' src={optionIcon} onClick={() => setNavModal(true)} />
 
@@ -54,8 +54,8 @@ const Navbar = () => {
                     <div className='container-fluid col p-0 nav-modal'>
 
                         <div className="col-12 nav-modal-head">
-                            <h3 className='logo-text' >LIJITH LEE</h3>
-                            <img src={closeIcon} onClick={() => setNavModal(false)} />
+                            <h3 className='logo-text' >PHOTOGRAPHY</h3>
+                            <img  src={closeIcon} onClick={() => setNavModal(false)} />
                         </div>
 
 

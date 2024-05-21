@@ -203,7 +203,7 @@ const HomePage = () => {
 
                     <video className='wedding-video' autoPlay muted loop src={weddingVid}></video>
 
-                    <h1 className=''>LJ LEE</h1>
+                    <h1 className=''>MEMORIES</h1>
 
 
                 </div>

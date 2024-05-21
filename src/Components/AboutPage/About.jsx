@@ -74,7 +74,7 @@ const About = () => {
 
                 {/* About Details___________________________________________________________________________________ */}
 
-                <div className='container-fluid pt-5  gap-5   d-flex flex-column  justify-content-center align-items-center about-content-div'>
+                <div className='container-fluid pt-5 gap-5 d-flex flex-column  justify-content-center align-items-center about-content-div'>
 
                     <div className='container row-cols-md-6  d-flex justify-content-between  flex-wrap  about-content-top-div' >
 
