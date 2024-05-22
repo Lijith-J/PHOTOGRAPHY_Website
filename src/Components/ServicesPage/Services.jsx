@@ -105,6 +105,19 @@ const Services = () => {
                 </div>
 
 
+
+                {/*  Chat ? Enquire box ________________________________ */}
+
+                <div className='contianer-fluid p-md-5 d-flex  justify-content-center  inquire-main-div'>
+                    <div className='col-md-8  p-5  inquire-sub-div'>
+                        <h1>Are you ready to chat?</h1>
+
+                        <span>INQUIRE HERE</span>
+                        <img src={require('./images/right-arrow.png')} alt="" />
+                    </div>
+                </div>
+
+
                 {/* FAQ box ___________________________________________________________----- */}
 
                 <div className=' container-fluid p-5 d-flex flex-wrap  justify-content-evenly FAQ-main-div'>
@@ -123,16 +136,7 @@ const Services = () => {
                 </div>
 
 
-                {/*  Chat ? Enquire box ________________________________ */}
-
-                <div className='contianer-fluid p-md-5 d-flex  justify-content-center  inquire-main-div'>
-                    <div className='col-md-8  p-5  inquire-sub-div'>
-                        <h1>Are you ready to chat?</h1>
-
-                        <span>INQUIRE HERE</span>
-                        <img src={require('./images/right-arrow.png')} alt="" />
-                    </div>
-                </div>
+                
 
 
             </div>
