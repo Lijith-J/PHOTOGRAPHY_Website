@@ -23,6 +23,27 @@
     src: url(../../fonts/QuattrocentoSans-Regular.ttf);
 }
 
+
+.to-top-div {
+    width: 100%;
+    background-color: #1C1C1C;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+    font-family: PlayfairDisplay;
+    letter-spacing: 0.1rem;
+    font-size: 1em;
+
+    &:hover {
+        background-color: #373737;
+    }
+}
+
+
 .footer-main-div {
     background-color: white;
 }

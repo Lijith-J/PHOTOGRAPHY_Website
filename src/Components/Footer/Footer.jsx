@@ -27,9 +27,19 @@ import nextIcon from './images/next.png'
 
 const Footer = () => {
 
+  const scrollToTop=()=>{
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    })
+  }
+
   return (
 
     <>
+      <div className=' to-top-div' onClick={scrollToTop}>
+        Back to top
+      </div>
 
       <footer className=' col p-md-4 d-flex flex-column align-items-center  footer-main-div'>
 
