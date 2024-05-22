@@ -3,7 +3,10 @@ import axios from 'axios'
 
 import './ContactPage_style.css'
 import './ContactPage_media.css'
+import { Audio } from 'react-loader-spinner'
 
+import SweetAlert2 from 'react-sweetalert2';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 // Ad Photos______________________________________________________
@@ -18,6 +21,9 @@ import cheersImg from './images/cheers1.jpg'
 
 const ContactPage = () => {
 
+  const [swalProps, setSwalProps] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
   const [currentImage, setCurrentImage] = useState('');
 
   const [inputValues, setInputValues] = useState({})
@@ -26,12 +32,12 @@ const ContactPage = () => {
     name: '',
     email: '',
     phone: '',
-    eventDate:'',
-    eventLocation:'',
-    eventType:'',
-    budget:'',
-    hearAboutUs:'',
-    TellAboutEvent:''
+    eventDate: '',
+    eventLocation: '',
+    eventType: '',
+    budget: '',
+    hearAboutUs: '',
+    TellAboutEvent: ''
   });
 
   console.log(formData)
@@ -46,6 +52,23 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
+    const requiredFields = ['name', 'email', 'phone', 'eventDate', 'eventLocation', 'eventType', 'budget', 'hearAboutUs', 'TellAboutEvent'];
+    for (let field of requiredFields) {
+      if (!formData[field]) {
+        setSwalProps({
+          show: true,
+          title: 'Error',
+          text: `Please fill out the ${field} field.`,
+          icon: 'error',
+          onConfirm: () => setSwalProps({ show: false }),
+        });
+
+        return;
+      }
+    }
+    setIsLoading(true);
+
     try {
       const response = await fetch('https://script.google.com/macros/s/AKfycbwOeGS7Kr0e0UNcPhc0zvujR2Idq60JV-b9oBEvyKJymQ_n7Pj_ozdlZxk74ZyGBje0/exec', {
         method: 'POST',
@@ -56,14 +79,35 @@ const ContactPage = () => {
       });
 
       if (response.ok) {
-        alert('Form submitted successfully');
-        window.location.reload();
+        // alert('Form submitted successfully');
+        setSwalProps({
+          show: true,
+          title: 'Form Submitted',
+          text: 'Your form was submitted successfully!',
+          icon: 'success',
+          onConfirm: () => window.location.reload(),
+        });
+
       } else {
-        throw new Error('Something went wrong');
+        setSwalProps({
+          show: true,
+          title: 'Error',
+          text: 'There was an error submitting your form.',
+          icon: 'error',
+        });
       }
     } catch (error) {
-      alert('Something went wrong');
+      setSwalProps({
+        show: true,
+        title: 'Error',
+        text: 'There was an error submitting your form.',
+        icon: 'error',
+      });
       console.error(error);
+    }
+    finally {
+      // Reset loading state
+      setIsLoading(false);
     }
   };
 
@@ -191,6 +235,14 @@ const ContactPage = () => {
         <div className='col-md-4 p-5  d-flex justify-content-center form-button-div'>
           <button type='submit'>SEND</button>
         </div>
+        <SweetAlert2 {...swalProps} />
+
+
+        {isLoading &&
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        }
 
       </form>
 
