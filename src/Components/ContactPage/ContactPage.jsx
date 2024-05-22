@@ -47,7 +47,7 @@ const ContactPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbzych_lIT5wD7r5V5Mm49h3nJakR9iLW7qb4Bxvyy2s_11NYNVGo4Ka9pL2g1uYh3ut/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwOeGS7Kr0e0UNcPhc0zvujR2Idq60JV-b9oBEvyKJymQ_n7Pj_ozdlZxk74ZyGBje0/exec', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
