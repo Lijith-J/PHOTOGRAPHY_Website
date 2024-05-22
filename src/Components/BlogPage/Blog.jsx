@@ -137,7 +137,7 @@ const Blog = () => {
 
 
                         <div className=' work-history-image-div'>
-                            <img src={require('./images/work History images/allef-vinicius-Iv3yJpmOmZc-unsplash.jpg')} alt="" />
+                            <img src={require('./images/work History images/allef-vinicius-Iv3yJpmOmZc-unsplash.jpgsc')} alt="" />
                         </div>
 
                         <div className='col-12 col-md-7 p-5 d-flex justify-content-evenly align-items-center  work-history-bottom-div'>
