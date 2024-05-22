@@ -24,7 +24,7 @@ const Navbar = () => {
             <div className='col-12 navigation-bar '>
 
                 <div className='col-4  logo-div'>
-                    <h3 className='navbar-brand' >PHOTOGRAPHY</h3>
+                    <Link to={'/'} className='navbar-brand'><h3>PHOTOGRAPHY</h3></Link>
 
                     <img className='img-fluid nav-options-icon' src={optionIcon} onClick={() => setNavModal(true)} />
 

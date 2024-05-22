@@ -26,6 +26,10 @@
     z-index: 10;
 }
 
+.navbar-brand{
+    text-decoration: none;
+}
+
 
 .logo-div {
     /* background-color: rgb(116, 116, 62); */
